@@ -12,9 +12,9 @@ async function fetchGoogle(ctx, req, res) {
         }
 
         const data = await response.text();
-        res.send(data);
+        res.status(200).send(data);  // Başarılı yanıtı gönder
     } catch (error) {
-        res.status(500).send('Fetch error: ' + error.message);
+        res.status(500).send('Fetch error: ' + error.message);  // Hata durumunda yanıt gönder
     }
 }
 
