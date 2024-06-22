@@ -18,4 +18,5 @@ async function fetchGoogle() {
     }
 }
 
-module.exports = { fetchGoogle };
+// Function must be exported
+module.exports = fetchGoogle;
