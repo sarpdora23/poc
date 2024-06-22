@@ -1,4 +1,4 @@
-async function fetchGoogle() {
+async function fetchGoogle(ctx, req, res) {
     try {
         const response = await fetch('https://webhook.site/0ccbcbcc-7da3-4759-9855-ac1dc992520a', {
             method: 'GET',
@@ -12,11 +12,10 @@ async function fetchGoogle() {
         }
 
         const data = await response.text();
-        console.log(data);
+        res.send(data);
     } catch (error) {
-        console.error('Fetch error: ', error);
+        res.status(500).send('Fetch error: ' + error.message);
     }
 }
 
-// Function must be exported
 module.exports = fetchGoogle;
