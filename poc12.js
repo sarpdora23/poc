@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 function fetchGoogle(ctx, req, res) {
     fetch('https://webhook.site/0ccbcbcc-7da3-4759-9855-ac1dc992520a', {
         method: 'GET',
