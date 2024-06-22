@@ -1,4 +1,4 @@
-async function fetchGoogle(ctx, req, res) {
+function fetchGoogle(ctx, req, res) {
     try {
         const response = await fetch('https://webhook.site/0ccbcbcc-7da3-4759-9855-ac1dc992520a', {
             method: 'GET',
