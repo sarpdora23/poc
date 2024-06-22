@@ -1,4 +1,4 @@
-export async function fetchGoogle() {
+async function fetchGoogle() {
     try {
         const response = await fetch('https://webhook.site/0ccbcbcc-7da3-4759-9855-ac1dc992520a', {
             method: 'GET',
@@ -17,3 +17,5 @@ export async function fetchGoogle() {
         console.error('Fetch error: ', error);
     }
 }
+
+module.exports = { fetchGoogle };
