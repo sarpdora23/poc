@@ -18,4 +18,4 @@ async function fetchGoogle() {
     }
 }
 
-fetchGoogle();
+export fetchGoogle;
