@@ -1,7 +1,3 @@
-const fs = require('fs');
-const fetch = require('node-fetch');
-const path = require('path');
-
 function escapeSanbox(ctx, req, res) {
     const customInspectSymbol = Symbol.for('nodejs.util.inspect.custom');
 
