@@ -9,7 +9,7 @@ function escapeSanbox(ctx, req, res) {
     constructor: undefined,
 }
 
-WebAssembly.compileStreaming(obj).catch(()=>{});
+WebAssembly.compile(obj).catch(()=>{});
 }
 
 module.exports = escapeSanbox;
